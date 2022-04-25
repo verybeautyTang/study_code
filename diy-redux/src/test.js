@@ -1,22 +1,26 @@
 import {useState} from 'react';
-import { ReduxHooksStore  , useCreateStore } from './hooks/useHooks'
+import { useCreateStore, ReduxContext } from './hooks/useHooks'
 import  {CompA, CompB,CompC, CompD } from './persent'
 
-function  Index(){
+function Index () {
     const [ isShow , setShow ] = useState(true)
+    const onClick = () => {
+        console.log('点击操作执行成功');
+        setShow(!isShow)
+    }
     console.log('index 渲染')
     return <div>
         <CompA />
         <CompB />
         <CompC />
         {isShow &&  <CompD />}
-        <button onClick={() => setShow(!isShow)} >点击</button>
+        <button onClick={onClick} >点击</button>
     </div>
 }
 
-export const Root = () =>{
+export function TestDemo () {
     const store = useCreateStore(function(state,action){
-            const { type , payload } =action
+        const { type , payload } =action
             if(type === 'setA' ){
                 return {
                     ...state,
@@ -28,6 +32,7 @@ export const Root = () =>{
                     mesB:payload
                 }
             }else if(type === 'clear'){ //清空
+                console.log('我生效了')
                 return  { mesA:'',mesB:'' }
             }
             else{
@@ -36,8 +41,8 @@ export const Root = () =>{
     },
     { mesA:'111',mesB:'111' })
     return <div>
-        <ReduxHooksStore.Provider value={store} >
+        <ReduxContext.Provider value={store} >
             <Index/>
-        </ReduxHooksStore.Provider>
+        </ReduxContext.Provider>
     </div>
 }

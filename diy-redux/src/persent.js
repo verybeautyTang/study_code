@@ -35,10 +35,14 @@ function CompC(){
 }
 
 function CompD(){
-  const [ ,dispatch  ] = useConnect( )
+  const [ ,dispatch  ] = useConnect()
   console.log('D 组件更新')
+  const onClick = () => {
+    console.log('点击清除按钮');
+    dispatch({ type:'clear' })
+  }
   return <div className="component_box" >
-    <button onClick={()=> dispatch({ type:'clear' })} > 清空 </button>
+    <button onClick={onClick} > 清空 </button>
   </div>
 }
 export {

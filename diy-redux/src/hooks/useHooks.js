@@ -1,8 +1,9 @@
 import { useConnect } from './useConnect';
-import { useCreateStore }  from './useCreateStore'
-import {ReduxHooksStore}  from './reactHooksStore'
+import { useCreateStore, ReduxContext }  from './useCreateStore'
+import { ReduxHooksStore }  from './reactHooksStore'
 export {
   useConnect,
   useCreateStore,
   ReduxHooksStore,
+  ReduxContext,
 }

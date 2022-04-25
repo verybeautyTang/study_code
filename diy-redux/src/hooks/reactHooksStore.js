@@ -13,20 +13,20 @@ export class ReduxHooksStore {
 
   /** 需暴露出去的接口给useConnect */
   exportApi = () => {
-    this.getInitState();
-    this.subscribe();
-    this.unSubscribe();
-    this.dispatch();
+    return {
+      dispatch:this.dispatch.bind(this),
+      subscribe:this.subscribe.bind(this),
+      unSubscribe:this.unSubscribe.bind(this),
+      getInitState:this.getInitState.bind(this)
+    }
   }
   /** 获取state */
   getInitState = (mapStoreToState) =>{
-    if (mapStoreToState) {
       return mapStoreToState(this.state)
-    }
   }
   /** 事件订阅 */
   subscribe = (connectCurrent) =>{
-    const connectName =  this.name + ++this.id
+    const connectName =  this.name + (++this.id)
     this.mapConnects[connectName] =  connectCurrent
     return connectName
   }
@@ -38,7 +38,6 @@ export class ReduxHooksStore {
   /** 组件更新 */
   renRender = () =>{
     unstable_batchedUpdates(()=> {
-      console.log(this.mapConnects)
       Object.keys(this.mapConnects).forEach((i) => {
         const { update } = this.mapConnects[i];
         update(this.state)
