@@ -1,0 +1,24 @@
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ (function() {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: Using removed Babel 5 option: .modules - Use the corresponding module transform plugin in the `plugins` option. Check out http://babeljs.io/docs/plugins/#modules\n    at throwUnknownError (E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\validation\\options.js:131:11)\n    at E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\validation\\options.js:118:5\n    at Array.forEach (<anonymous>)\n    at validateNested (E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\validation\\options.js:94:21)\n    at validate (E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\validation\\options.js:85:10)\n    at E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\config-chain.js:209:34\n    at cachedFunction (E:\\study\\study_code\\diy-redux\\node_modules\\@babel\\core\\lib\\config\\caching.js:60:27)\n    at cachedFunction.next (<anonymous>)\n    at evaluateSync (E:\\study\\study_code\\diy-redux\\node_modules\\gensync\\index.js:251:28)\n    at sync (E:\\study\\study_code\\diy-redux\\node_modules\\gensync\\index.js:89:14)");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	
+/******/ })()
+;

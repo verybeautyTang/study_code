@@ -39,7 +39,7 @@ function CompD(){
   console.log('D 组件更新')
   const onClick = () => {
     console.log('点击清除按钮');
-    dispatch({ type:'clear' })
+    dispatch({ type:'clear' });
   }
   return <div className="component_box" >
     <button onClick={onClick} > 清空 </button>

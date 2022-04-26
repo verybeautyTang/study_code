@@ -32,7 +32,7 @@ export function TestDemo () {
                     mesB:payload
                 }
             }else if(type === 'clear'){ //清空
-                console.log('我生效了')
+                console.log('我生效了吼吼吼')
                 return  { mesA:'',mesB:'' }
             }
             else{
