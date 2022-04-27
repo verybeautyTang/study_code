@@ -16,6 +16,8 @@
     "watch:dev": "webpack --watch",
     "build": "webpack build",
     "test": "react-scripts test",
+    "prepare": "husky install",
+    "lint": "lint-staged",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,6 +38,13 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "*{.ts,.js}": [
+      "eslint --ext .tsx,.ts --fix ./src",
+      "prettier --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
@@ -46,10 +55,16 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
     "less-loader": "^10.2.0",
+    "lint-staged": "^12.4.1",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
+    "prettier": "^2.6.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
