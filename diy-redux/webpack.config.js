@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
@@ -51,6 +52,7 @@ module.exports = {
     mode: 'development',
     plugins: [
         new CleanWebpackPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, './public/index.html'),
             filename: 'index.html',

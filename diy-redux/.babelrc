@@ -3,5 +3,8 @@
         "@babel/preset-env",
         "@babel/preset-react"
     ],
-    "modules": false,
+    // "modules": false,
+    "parserOpts": {
+        "plugins": ["jsx", "flow"]
+    }
 }
