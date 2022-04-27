@@ -50,6 +50,7 @@ module.exports = {
         ]
     },
     mode: 'development',
+    stats: 'verbose',
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),

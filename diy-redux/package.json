@@ -16,7 +16,6 @@
     "watch:dev": "webpack --watch",
     "build": "webpack build",
     "test": "react-scripts test",
-    "prepare": "husky install",
     "lint": "lint-staged",
     "eject": "react-scripts eject"
   },
