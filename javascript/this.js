@@ -80,3 +80,59 @@ function fooBind(a, b, c){
 }
 fooBind(1,2,4)
 fooBind.bind({}, 1, 2, 3)();
+
+
+
+const o1 = {
+    text: 'o1',
+    fn: function () {
+        return this.text
+    }
+}
+const o2 = {
+    text: 'o2',
+    fn: function () {
+        return o1.fn()
+    }
+}
+const o3 = {
+    text: 'o3',
+    fn: function () {
+        const fn = o1.fn
+        return fn()
+    }
+}
+
+/** 
+ * this bind改变this
+ */
+function foo (a) {
+    this.a = a
+}
+const obj1 = {}
+const bar = foo.bind(obj1)
+bar(2)
+console.log(obj1)
+console.log(obj1.a)
+
+/**
+ * call change this
+ * @returns this
+ */
+function foos () {
+    return a =>{
+        console.log(this.a)
+    }
+}
+const obj2 = {
+    a: 3
+}
+const obj3 = {
+    a: 4
+}
+const bars = foos.call(obj2)
+console.log(bars.call(obj3))
+
+console.log(o1.fn())
+console.log(o2.fn())
+console.log(o3.fn())

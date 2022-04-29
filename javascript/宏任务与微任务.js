@@ -55,3 +55,14 @@ async function foo () {
     console.log('------after')
 }
 foo()
+
+function test() {
+    console.log(this)
+    return ()=> {
+        console.log(this)
+        return () => {
+            console.log(this)
+        }
+    }
+}
+test();
