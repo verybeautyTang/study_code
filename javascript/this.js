@@ -7,6 +7,10 @@
 /**
  * 普通函数的this
  * 谁调用它，this就指向谁
+ * 
+ * 箭头函数： 1它本身没有自己的this
+ *          它的this指向定义它的外层作用域
+ *           它不能用new bind call apply改变this指向 因为它没有自己的this
  */
 function normalThis() {
     console.log('我执行了')
