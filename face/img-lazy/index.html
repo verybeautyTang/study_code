@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlRGOfuWYKjark5QfhVVwmXMHpzVkDCZf9pg&usqp=CAU"/>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片懒加载</title>
+    <style>
+      img {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="1"
+    />
+    <img
+      src="https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_960_720.jpg"
+      alt="2"
+    />
+    <img
+      data-src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="3"
+    />
+    <img
+      data-src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="4"
+    />
+    <img
+      data-src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="5"
+    />
+    <img
+      data-src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="6"
+    />
+    <img
+      data-src="https://cdn.pixabay.com/photo/2021/08/24/15/38/sand-6570980_960_720.jpg"
+      alt="7"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.20/lodash.js"></script>
+    <script>
+      const images = document.querySelectorAll("img");
+      const lazyLoad = () => {
+        images.forEach((item) => {
+          // 触发条件为img元素的CSSOM对象到视口顶部的距离 < 100px + 视口高度，+100px为了提前触发图片加载
+          if (
+            item.getBoundingClientRect().top <
+            document.documentElement.clientHeight + 100
+          ) {
+            if ("src" in item.dataset) {
+              item.src = item.dataset.src;
+            }
+          }
+        });
+      };
+      document.addEventListener("scroll", _.throttle(lazyLoad, 200));
+
+    </script>
+  </body>
 </html>
