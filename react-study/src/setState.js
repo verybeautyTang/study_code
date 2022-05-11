@@ -9,14 +9,14 @@ export default class SetState extends React.Component {
   }
 
   componentDidMount () {
-    document.getElementById('myButtons').addEventListener('click', this.onClick.bind(this))
+      document.getElementById('myButtons').addEventListener('click', this.onClick.bind(this))
   }
   onClick () {
     console.log('before', this.state.sum)
-    this.setState((state) => ({ sum: state.sum + 1}))
-    this.setState((state) => ({ sum: state.sum + 1}))
-    this.setState((state) => ({ sum: state.sum + 1}))
-    this.setState((state) => ({ sum: state.sum + 1}))
+    this.setState({ sum: this.state.sum + 1})
+    this.setState({ sum: this.state.sum + 1})
+    this.setState({ sum: this.state.sum + 1})
+    this.setState({ sum: this.state.sum + 1})
     console.log('after',this.state.sum)
   }
   render () {
