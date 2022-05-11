@@ -10,7 +10,6 @@ const data = {
 
 const observer = (data) => {
     if(!data || typeof data !== 'object' ) return ;
-    console.log(data);
     Object.keys(data).forEach(key => {
         let currentData = data[key];
         observer(currentData)
