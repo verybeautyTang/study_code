@@ -1,16 +1,15 @@
 const path = require('path')
 const packagePath = path.join(path.resolve('./'), 'package.json')
-const { dependencies } = require(packagePath)
+const {dependencies} = require(packagePath)
 
 const port = 8002
 module.exports = {
-
   /**
- * Webpack 配置入口
- * @param {*} param0
- * @returns
- */
-  webpack({ webpackEnv, config }) {
+   * Webpack 配置入口
+   * @param {*} param0
+   * @returns
+   */
+  webpack({webpackEnv, config}) {
     console.log('webpack', webpackEnv)
     // 配置 index.html
     config.plugin('html').tap(args => {
@@ -33,11 +32,10 @@ module.exports = {
     }
   },
 
-
   /**
    * 打包相对路径配置
    */
-  moduleGenerator({ webpackEnv }) {
+  moduleGenerator({webpackEnv}) {
     console.log('moduleGenerator', webpackEnv)
     return webpackEnv === 'development' ? '/' : `http://localhost:${port}/`
   },
@@ -69,8 +67,9 @@ module.exports = {
      * "被远程引用时的路径":"本项目相对路径"
      */
     exposes: {
-      "./components/Hello": "src/components/Hello",
-      "./helper": "src/helper"
+      './components/Hello': 'src/components/Hello',
+      './helper': 'src/helper',
+      './App': 'src/App',
     },
 
     /**
