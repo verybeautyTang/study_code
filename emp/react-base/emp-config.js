@@ -60,7 +60,7 @@ module.exports = {
      */
     remotes: {
       '@emp/react-project': `empReactProject@http://localhost:8002/emp.js`,
-      '@emp/react-demo': 'empReactDemo@http://localhost:3000/emp.js',
+      '@emp/react-demo': 'empReactDemo@http://localhost:8003/emp.js',
     },
 
     /**
