@@ -3,6 +3,11 @@ declare module '@emp/react-project/App' {
   const App: () => JSX.Element
   export default App
 }
+declare module '@emp/react-demo/App' {
+  /// <reference types="react" />
+  const App: () => JSX.Element
+  export default App
+}
 declare module '@emp/react-project/bootstrap' {
   export {}
 }

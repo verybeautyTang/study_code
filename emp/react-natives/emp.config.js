@@ -1,7 +1,8 @@
 const path = require('path')
 const packagePath = path.join(path.resolve('./'), 'package.json')
 const {dependencies} = require(packagePath)
-const port = 8001
+
+const port = 3000
 module.exports = {
   /**
    * Webpack 配置入口
@@ -10,7 +11,6 @@ module.exports = {
    */
   webpack({webpackEnv, config}) {
     console.log('webpack', webpackEnv)
-
     // 配置 index.html
     config.plugin('html').tap(args => {
       args[0] = {
@@ -37,7 +37,7 @@ module.exports = {
    */
   moduleGenerator({webpackEnv}) {
     console.log('moduleGenerator', webpackEnv)
-    return webpackEnv === 'development' ? '/' : `http://localhost:8001/`
+    return webpackEnv === 'development' ? '/' : `http://localhost:${port}/`
   },
 
   /**
@@ -47,7 +47,7 @@ module.exports = {
     /**
      * 项目名
      */
-    name: 'empReactBase',
+    name: 'empReactDemo',
 
     /**
      * 当前暴露模块索引文件
@@ -59,8 +59,7 @@ module.exports = {
      * "本项目引用模块命名空间":"远程模块项目名@项目地址"
      */
     remotes: {
-      '@emp/react-project': `empReactProject@http://localhost:8002/emp.js`,
-      '@emp/react-demo': 'empReactDemo@http://localhost:3000/emp.js',
+      '@emp/react-demo': 'empReactDemo',
     },
 
     /**
@@ -68,22 +67,20 @@ module.exports = {
      * "被远程引用时的路径":"本项目相对路径"
      */
     exposes: {
-      './configs/index': 'src/configs/index',
-      './components/Demo': 'src/components/Demo',
-      './components/Hello': 'src/components/Hello',
+      './App': 'src/App',
     },
 
     /**
      * 共享 lib
      */
     /* shared: {
-        react: {singleton: true, requiredVersion: false},
-        'react-dom': {singleton: true, requiredVersion: false},
-      }, */
+      react: {singleton: true, requiredVersion: false},
+      'react-dom': {singleton: true, requiredVersion: false},
+    }, */
     /* shared: {
-        react: {requiredVersion: '^17.0.1'},
-        'react-dom': {requiredVersion: '^17.0.1'},
-      }, */
+      react: {requiredVersion: '^17.0.1'},
+      'react-dom': {requiredVersion: '^17.0.1'},
+    }, */
     // shared: Object.assign({}, shareByVersion('react'), shareByVersion('react-dom')),
   },
 }
