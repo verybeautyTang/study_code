@@ -1,0 +1,23 @@
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 1) return strs[0];
+    if(strs.length >= 200) return ""
+    // 获取对比数据
+    const conpareData = strs[0].split("");
+    // 设置公共前缀变量
+    let publucPrefix = "";
+    // 匹配大写的正则
+    const rule = /[A-Z]+/g;
+    for(let i = 0; i< conpareData.length; i++ ) {
+    for(let j = 1; j< strs.length; j++ ) {
+        // 如果传递的参数为的长度为0或者大于200或者存在大写，直接返回空
+        if(strs[j].length === 0 || strs[j].length >= 200 || rule.test(strs[j])) return ""
+        if ( strs[j][i] != conpareData[i] ) return publucPrefix
+    } 
+    publucPrefix += conpareData[i];
+    }
+    return publucPrefix;
+};
