@@ -38,7 +38,7 @@ const NativeOrReact = () => {
     <div>
       <h1>Native or React?</h1>
       <div  ref= {refFather} onClick={fatherClick} onClickCapture={fatherCapture}>
-        <div>💡 Look At Me I am Father</div>
+        <div>💡 Look At Me I am Fathessssr</div>
         <button ref= {refChild} onClick={childClick} onClickCapture={childCapture}>Yeal！ I am Child</button>
       </div>
     </div>

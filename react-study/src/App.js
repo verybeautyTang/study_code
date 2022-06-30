@@ -1,14 +1,13 @@
 import './App.css';
 import React from 'react';
-import { GetState } from './state'
-import SetState from './setState'
-import OrderUpstate from './orderUpdate'
-import SuperContainer from './opderUpdateExtend'
+import GetName from './HOC/GetName.jsx'
 import NativeOrReact from './nativeOrReact';
+const NewB = GetName(NativeOrReact)
 function App() {
   return (
     <div className="App">
-      <NativeOrReact/>
+      <NewB></NewB>
+      {/* <NativeOrReact/> */}
       {/* <br/>
       <GetState />
       <br/>
