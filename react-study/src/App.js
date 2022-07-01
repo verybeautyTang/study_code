@@ -7,15 +7,7 @@ function App() {
   return (
     <div className="App">
       <NewB></NewB>
-      {/* <NativeOrReact/> */}
-      {/* <br/>
-      <GetState />
-      <br/>
-      <SetState/>
-      <br/>
-      <OrderUpstate/>
-      <br/>
-      <SuperContainer/> */}
+
     </div>
   );
 }
