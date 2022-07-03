@@ -1,14 +1,11 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var removeDuplicates = function(nums) {
-    let data = []
-    for(let i = 0; i< nums.length; i++) {
-        if(!data.includes(nums[i])) {
-            data.push(nums[i])
+    if(!nums.length) return 0;
+    let i = 0;
+    for(let j = 1; j < nums.length; j++){
+        if(nums[j] !== nums[i]){
+            i++;
+            nums[i] = nums[j];
         }
     }
-    console.log(data)
-    return data
+    return i + 1;
 };
