@@ -9,3 +9,17 @@ var lengthOfLastWord = function(s) {
     splitStr = splitStr.filter((i) => !!i)
     return splitStr[splitStr.length - 1].length
 };
+
+// 方案2
+    let j = 0
+    let i = s.length - 1
+    while(s[i] === ' ') i--
+    while(i>= 0) {
+        if(s[i] === ' ' && j === 0) i--;
+        if(s[i] === ' ' && j > 0) return j 
+        else {
+            j++;
+            i--;
+        }
+    }
+    return j
