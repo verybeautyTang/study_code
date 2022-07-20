@@ -8,46 +8,54 @@
   </head>
   <body>
     <script>
-      async function async1() {
-        console.log('a1 start')
+//    setTimeout(function() {
+//     console.log('4')
+// })
 
-        await async2()
+// new Promise(function(resolve) {
+//     console.log('1') 
+//     resolve()
+// }).then(function() {
+//     console.log('3')
+// })
+// console.log('2')
 
-        console.log('a1 end')
-      }
+setTimeout(function () {
+  console.log('6')
+}, 0)
+console.log('1')
+async function async1() {
+  console.log('2')
+  await async2()
+  console.log('5')
+}
+async function async2() {
+  console.log('3')
+}
+async1()
+console.log('4')
 
-      async function async2() {
-        console.log('a2')
-      }
+(function(){const a = b =1})()
+console.log(a)
 
-      console.log('begin')
+(function(){var c = d =3})()
+console.log(c)
 
-      setTimeout(function () {
-        console.log('setTimeout')
-      }, 0)
+// Js  事件循环机制
 
-      async1()
+// react 生命周期执行顺序
 
-      new Promise(function (resolve) {
-        console.log('p1')
+// http 请求方法 写 4种
 
-        resolve()
-      }).then(function () {
-        console.log('p2')
-      })
+// js 垃圾回收机制写 2种
 
-      console.log('end')
+// js 常见的3种本地缓存
 
-      // begin
-      // a1 start
-      // a2
+// 阻止事件的冒泡方法
 
-      // p1
-      // end
-            // a1 end
-                  // p2
-      // setTimeout
+// DOM事件阶段以及事件捕获与事件冒泡先后执行顺序
 
+// js 事件循环机制
     </script>
   </body>
 </html>
