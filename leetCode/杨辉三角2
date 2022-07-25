@@ -1,0 +1,25 @@
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+    let data = []
+    for(let i = 0; i<= rowIndex; i++) {
+        let tempData = []
+        if(!data.length) {
+            tempData.push(1)
+        } else {
+            tempData.push(1)
+            const lastData = data[data.length - 1]
+            for(let j = 0; j <lastData.length; j++ ) {
+                if( j+1 < lastData.length) {
+                    tempData.push(lastData[j] + lastData[j+1])
+                }
+            }
+             tempData.push(1)
+        }
+        console.log(tempData)
+        data.push(tempData)
+    }
+    return data[rowIndex]
+};
