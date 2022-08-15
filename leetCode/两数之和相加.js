@@ -15,3 +15,27 @@ var twoSum = function(nums, target) {
     })
     return datas
 };
+
+// 两种方法
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function(num) {
+    let low = 0 ;
+    let high = num;
+    while(high >= low) {
+        let mid =  low + Math.floor((high - low) / 2);
+        let temp = mid * mid
+        if(temp === num) {
+            return true;
+        }
+        else if (temp < num) {
+         low = mid + 1;
+        } else {
+               high = mid - 1;
+            
+        }
+    }
+     return false;
+};
