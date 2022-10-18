@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function ClosureTest() {
+      let value = 123;
+      function bar () {
+        // console.log(value); value是闭包
+        console.log(123);
+        debugger
+      }
+      return bar;
+    }
+    let closure = new ClosureTest();
+    closure();
+
+    var array = [];
+    function MemoryLakeage() {
+      let div;
+      let i  =100;
+      let frag = document.createDocumentFragment();
+      for(; i> 0; i--) {
+        div = document.createElement("div");
+        div.appendChild(document.createTextNode(i));
+        frag.appendChild(div);
+      }
+      document.body.appendChild(frag);
+    }
+    function badCode() {
+      array.push([...Array(10000).keys(0)]);
+      MemoryLakeage();
+      setTimeout(badCode, 1000)
+    }
+    // badCode(); // 内存泄漏
+  </script>
+</body>
+</html>
