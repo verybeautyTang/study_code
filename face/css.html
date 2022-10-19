@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #offsetwidth {
+      width: 100px;
+      padding: 10px;
+      border: 1px solid pink;
+      margin: 10px;
+      /* box-sizing: border-box; */
+    }
+    .divTwo {
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    .divfour {
+      width: 100px;
+      height: 100px;
+      border: 2px solid blue;
+    }
+    .negative {
+      margin: -10px;
+    }
+    .rightDiv {
+      float: left;
+    }
+    .contariner {
+      height: 40px;
+    }
+    .contariner-img {
+      float: left;
+    }
+    .bfc {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h3>盒子模型的宽高是如何计算的 offsetWidth = padding + border + width</h3>
+  <p>执行document.getElementById('offsetwidth').offsetWidth</p>
+  <p>如果要offstWidth = 100， 设置box-sizing： border-box</p>
+  <div id="offsetwidth">122</div>
+
+
+  <h3>margin纵向重叠问题</h3>
+  <p>相邻的两个margin-bottom与margin-top会发生重叠</p>
+  <p>空白的p标签也会发生重叠</p>
+  <div>
+    <p>下面的margin 就是15px</p>
+    <p class="divTwo">AAA</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p class="divTwo">BBB</p>
+  </div>
+  
+  <h3>margin负值问题</h3>
+  <p>margin-top, margin-left设置为负数的情况下，对应元素会相应的向上、向左移动</p>
+  <p>margin-bottom,margin-rilgt设置为负数的情况下，对应元素的右边或者下边会对应的向上、向左移动</p>
+  <div>
+    <div class="divfour negative"></div>
+    <span>222</span>
+    <div class="divfour"></div>
+    <div class="divfour"></div>
+    <!-- <div class="divfour"></div> -->
+  </div>
+
+
+  <h3>BFC</h3>
+  <p>BFC：可以独立渲染一个区域，对别的页面或者模块没有影响【block format context】</p>
+  <p>BFC可以解决清楚浮动的问题</p>
+  <ul>形成BFC的办法
+   <li>overflow不是visibel</li>
+   <li>float不是none</li>
+   <li>display是block或者inline-block</li>
+   <li>position是abosolut或者fixed</li>
+  </ul>
+  
+  <div class="container">
+    <img class="contariner-img" src="https://mmbiz.qpic.cn/mmbiz_jpg/j3gficicyOvauUzTNa8A4Lz13atGSibiayGEIJFqEyonG33ssibpRIJCZk7RiaCCb4qTvMb99CEAgfeFiap7LeIBNjibRQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1"  />
+    <p class="bfc">kjhsdfksfdklsdflk</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .header {
+      width: 100%;
+      background-color: bisque;
+    }
+    /* 手写clearfix */
+    .clearfix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .footer {
+      width: 100%;
+      /* clear: both; */
+      background-color: blue;
+    }
+    .container {
+      height: 100%;
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+    .column {
+      float: left;
+    }
+    .center {
+      width: 100%;
+      background-color: brown;
+    }
+    .left {
+      position: relative;
+      width: 200px;
+      margin-left: -100%;
+      background-color: pink;
+      right: 200px;
+    }
+    .right {
+      width: 200px;
+      background-color: blueviolet;
+      margin-right: -200px;
+    }
+
+
+    .main {
+      width: 100%;
+      height: 200px;
+      background-color: aquamarine;
+    }
+    .cc {
+      margin-left: 200px;
+      margin-right: 200px;
+    }
+    .ll {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-left: -100%;
+    }
+    .rr {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      margin-left: -200px;
+    }
+    .floatLeft {
+      float: left;
+    }
+    .vh-vw {
+      width: 10vmin;
+      height: 10vmin;
+      background-color: royalblue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 圣杯布局/双飞翼布局 -->
+    <p> 圣杯布局： 三栏布局，中间一栏最先渲染和加载</p>
+    <p>双飞翼布局：</p>
+    <ul> 
+      布局步骤
+      <li>使用flloat布局</li>
+      <li>两侧使用margin负值，便于和中间位置重叠</li>
+      <li>防止中间内容被覆盖，一个用padding，一个用margin进行修复</li>
+    </ul>
+
+
+    <h3>圣杯布局</h3>
+    <div class="header">header</div>
+    <div class="container clearfix">
+      <div class="center column">center</div>
+      <div class="left column">left</div>
+      <div class="right column">right</div>
+    </div>
+    <div class="footer">footer</div>
+
+
+    <h3>双飞翼布局</h3>
+    <div class="main floatLeft">
+      <div class="cc">center</div>
+    </div>
+    <div class="ll floatLeft">left</div>
+    <div class="rr floatLeft">right</div>
+     
+
+    <!-- vm/vh -->
+    <h3>vm/vh</h3>
+    <div class="vh-vw"></div>
+
+</body>
+</html>
